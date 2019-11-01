@@ -15,8 +15,9 @@ const TheGrid = styled.div`
   height: fit-content;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(180px, 1fr));
 `;
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
         {settings.settings && (
           <SettingsBox settings={settings} saveSettings={saveSettings} />
         )}
+        {settings.skull && <Head></Head>}
+        {settings.skull && <Head></Head>}
+        {settings.skull && <Head></Head>}
         {settings.skull && <Head></Head>}
       </TheGrid>
     </Playground>

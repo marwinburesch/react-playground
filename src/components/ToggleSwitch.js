@@ -6,6 +6,7 @@ import styled from "styled-components";
 export const ToggleSwitchName = styled.span`
   color: #fff;
   flex-grow: 1;
+  user-select: none;
 `;
 
 const CheckBoxWrapper = styled.div`
