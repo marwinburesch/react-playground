@@ -24,16 +24,10 @@ const Grid = styled.div`
 function App() {
   const [settings, setSettings] = React.useState(defaultSettings);
 
-  function saveSettings(newSettings) {
-    setSettings(newSettings);
-  }
-
   return (
     <Playground>
       <Grid>
-        {settings.settings && (
-          <SettingsBox settings={settings} saveSettings={saveSettings} />
-        )}
+        <SettingsBox settings={settings} setSettings={setSettings} />
         {settings.skull && <Head></Head>}
       </Grid>
     </Playground>

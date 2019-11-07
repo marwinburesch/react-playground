@@ -25,21 +25,14 @@ const ToggleSwitchWrapper = styled.div`
   align-items: center;
 `;
 
-const SettingsBox = ({ saveSettings, settings }) => {
-  const [settingsPanel, setSettingsPanel] = React.useState(settings);
-
-  React.useEffect(() => {
-    saveSettings(settingsPanel);
-    // eslint-disable-next-line
-  }, [settingsPanel]);
-
+const SettingsBox = ({ settings, setSettings }) => {
   function handleChangeSettings(settingName, isChecked) {
     console.log(`Box: setting ${settingName} to ${!isChecked}`);
     const newSettings = {
-      ...settingsPanel,
+      ...settings,
       [settingName]: !isChecked
     };
-    setSettingsPanel(newSettings);
+    setSettings(newSettings);
   }
 
   return (
@@ -49,8 +42,8 @@ const SettingsBox = ({ saveSettings, settings }) => {
         <ToggleSwitchWrapper key={setting}>
           <ToggleSwitch
             id={setting}
-            active={settingsPanel[setting]}
-            changeSettings={handleChangeSettings}
+            active={settings[setting]}
+            onChangeSettings={handleChangeSettings}
           />
           <ToggleSwitchName>{setting}</ToggleSwitchName>
         </ToggleSwitchWrapper>
