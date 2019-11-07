@@ -30,6 +30,7 @@ const SettingsBox = ({ saveSettings, settings }) => {
 
   React.useEffect(() => {
     saveSettings(settingsPanel);
+    // eslint-disable-next-line
   }, [settingsPanel]);
 
   function handleChangeSettings(settingName, isChecked) {

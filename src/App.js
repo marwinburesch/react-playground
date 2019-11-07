@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SettingsBox from "./components/SettingsBox";
 import Head from "./components/Head";
-
-// https://coolors.co/282c34-4fbe79-39a2ae-434f4f-7a9e9f
+import defaultSettings from "./settings";
 
 const Playground = styled.div`
   height: 100vh;
@@ -11,24 +10,19 @@ const Playground = styled.div`
   background-color: #282c34;
 `;
 
-const TheGrid = styled.div`
+const Grid = styled.div`
   height: fit-content;
   padding: 20px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(180px, 1fr));
+  > * {
+    min-height: 205px;
+  }
 `;
 
 function App() {
-  const [settings, setSettings] = React.useState({
-    darkmode: false,
-    sound: true,
-    skull: false,
-    settings: true
-  });
-
-  console.log(`The current settings are:`, settings);
+  const [settings, setSettings] = React.useState(defaultSettings);
 
   function saveSettings(newSettings) {
     setSettings(newSettings);
@@ -36,15 +30,12 @@ function App() {
 
   return (
     <Playground>
-      <TheGrid>
+      <Grid>
         {settings.settings && (
           <SettingsBox settings={settings} saveSettings={saveSettings} />
         )}
         {settings.skull && <Head></Head>}
-        {settings.skull && <Head></Head>}
-        {settings.skull && <Head></Head>}
-        {settings.skull && <Head></Head>}
-      </TheGrid>
+      </Grid>
     </Playground>
   );
 }
