@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SettingsBox from "./components/SettingsBox";
 import Head from "./components/Head";
-import defaultSettings from "./settings";
+import defaultSettings from "./defaultSettings";
 
 const Playground = styled.div`
   height: 100vh;
