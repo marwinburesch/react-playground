@@ -25,16 +25,7 @@ const ToggleSwitchWrapper = styled.div`
   align-items: center;
 `;
 
-const SettingsBox = ({ settings, setSettings }) => {
-  function handleChangeSettings(settingName, isChecked) {
-    console.log(`Box: setting ${settingName} to ${!isChecked}`);
-    const newSettings = {
-      ...settings,
-      [settingName]: !isChecked
-    };
-    setSettings(newSettings);
-  }
-
+const SettingsBox = ({ settings, onChangeSetting }) => {
   return (
     <SettingsBoxWrapper>
       <ModuleTitle>Settings:</ModuleTitle>
@@ -43,7 +34,7 @@ const SettingsBox = ({ settings, setSettings }) => {
           <ToggleSwitch
             id={setting}
             active={settings[setting]}
-            onChangeSettings={handleChangeSettings}
+            onChangeSetting={onChangeSetting}
           />
           <ToggleSwitchName>{setting}</ToggleSwitchName>
         </ToggleSwitchWrapper>

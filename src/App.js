@@ -24,10 +24,22 @@ const Grid = styled.div`
 function App() {
   const [settings, setSettings] = React.useState(defaultSettings);
 
+  function handleChangeSetting(settingName, isChecked) {
+    console.log(`Box: setting ${settingName} to ${!isChecked}`);
+    const newSettings = {
+      ...settings,
+      [settingName]: !isChecked
+    };
+    setSettings(newSettings);
+  }
+
   return (
     <Playground>
       <Grid>
-        <SettingsBox settings={settings} setSettings={setSettings} />
+        <SettingsBox
+          settings={settings}
+          onChangeSetting={handleChangeSetting}
+        />
         {settings.skull && <Head></Head>}
       </Grid>
     </Playground>
