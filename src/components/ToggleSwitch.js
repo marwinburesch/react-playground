@@ -3,8 +3,17 @@ import styled from "styled-components";
 
 // source: https://codesandbox.io/s/6v7n1vr8yn
 
+export const ToggleSwitchName = styled.span`
+  color: #fff;
+  flex-grow: 1;
+  user-select: none;
+`;
+
 const CheckBoxWrapper = styled.div`
   position: relative;
+  width: 42px;
+  height: 26px;
+  margin-right: 15px;
 `;
 const CheckBoxLabel = styled.label`
   position: absolute;
@@ -47,23 +56,23 @@ const CheckBox = styled.input`
   }
 `;
 
-const ToggleSwitch = ({ settings, toggleDarkmode }) => {
-  const toggle = settings.darkmode;
+const ToggleSwitch = ({ id, active, onChange }) => {
+  const [isChecked, setIsChecked] = React.useState(active);
 
-  function handleChange(event) {
-    toggleDarkmode(event.target.checked);
+  function handleChange() {
+    setIsChecked(!isChecked);
+    onChange(id, isChecked);
   }
 
   return (
     <CheckBoxWrapper>
       <CheckBox
-        id="checkbox"
+        id={id}
         type="checkbox"
-        toggle={toggle}
+        checked={isChecked}
         onChange={handleChange}
-        checked={toggle}
       />
-      <CheckBoxLabel htmlFor="checkbox" />
+      <CheckBoxLabel htmlFor={id}></CheckBoxLabel>
     </CheckBoxWrapper>
   );
 };
