@@ -34,7 +34,7 @@ const SettingsBox = ({ settings, onChangeSetting }) => {
           <ToggleSwitch
             id={setting}
             active={settings[setting]}
-            onChangeSetting={onChangeSetting}
+            onChange={onChangeSetting}
           />
           <ToggleSwitchName>{setting}</ToggleSwitchName>
         </ToggleSwitchWrapper>

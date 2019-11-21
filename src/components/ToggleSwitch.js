@@ -56,12 +56,12 @@ const CheckBox = styled.input`
   }
 `;
 
-const ToggleSwitch = ({ id, active, onChangeSetting }) => {
+const ToggleSwitch = ({ id, active, onChange }) => {
   const [isChecked, setIsChecked] = React.useState(active);
 
   function handleChange() {
     setIsChecked(!isChecked);
-    onChangeSetting(id, isChecked);
+    onChange(id, isChecked);
   }
 
   return (
